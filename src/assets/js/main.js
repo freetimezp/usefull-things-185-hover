@@ -1,9 +1,6 @@
-import gsap from "gsap";
-import SplitText from "gsap/SplitText";
-
-gsap.registerPlugin(SplitText);
-
 document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(SplitText);
+
     const profileImageContainer = document.querySelector(".profile-images");
     const profileImages = document.querySelectorAll(".profile-images .img");
     const nameElements = document.querySelectorAll(".profile-names .name");
