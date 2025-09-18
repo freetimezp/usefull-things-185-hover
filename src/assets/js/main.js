@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const defaultLetters = nameElements[0].querySelectorAll(".letter");
     gsap.set(defaultLetters, { y: "100%" });
 
+    const section = document.querySelector(".team");
+    const bgLayer = section.querySelector(".bg");
+
     if (window.innerWidth >= 900) {
         profileImages.forEach((img, index) => {
             const correspondingName = nameElements[index + 1];
@@ -28,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     duration: 0.5,
                     ease: "power4.out",
                 });
+
+                bgLayer.style.backgroundImage = `url(${img.querySelector("img").src})`;
+                gsap.to(bgLayer, { opacity: 1, duration: 0.5, ease: "power4.inOut", zIndex: 1 });
 
                 gsap.to(letters, {
                     y: "-100%",
@@ -47,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     duration: 0.5,
                     ease: "power4.out",
                 });
+
+                gsap.to(bgLayer, { opacity: 0, duration: 0.5, ease: "power4.inOut" });
 
                 gsap.to(letters, {
                     y: "0%",
